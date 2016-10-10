@@ -1,0 +1,4 @@
+g++ -g main.cpp mergeSort.cpp ../tools.cpp 
+if [ $? -eq 0 ]; then 
+    gdb a.out
+fi
