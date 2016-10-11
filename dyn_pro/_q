@@ -1,4 +1,4 @@
-g++ -g palindrome.cpp ../tools.cpp
+g++ -g combination.cpp ../tools.cpp
 if [ $? -eq 0 ]; then
 	gdb a.out
 fi

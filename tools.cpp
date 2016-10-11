@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 #include "tools.h"
 
 int print_arr(int* arr, const size_t len) {

@@ -1,7 +1,21 @@
 #include "../tools.h"
-#include "stdio.h"
+#include <cstdio>
 #include <string>
 #include <cstdlib>
+
+/**
+Problem:
+    A palindrome is a nonempty string covering some alphabets that read the same forward
+    and backward​. Examples of palindromes include:
+    - all strings of length 1,
+    - "civic",
+    - "racecar"
+    - "aibohphobia.
+    Given an input string X, the Longest Palindrome Subsequence Problem is to find the
+    length of the longest palindrome L that is a subsequence of string X. For example, give the
+    input X="BBABCBCAB", the output should be 7 as "BABCBAB" is the longest palindrome
+    subsequence.
+*/
 
 int palindrome_recursive(std::string str, int i, int j)
 {    
@@ -19,15 +33,10 @@ int palindrome_recursive(std::string str, int i, int j)
 
 int palindrome_dynamic(std::string str, int i, int j)
 {
-    int** arr = (int**) malloc(10*sizeof(int*));
+    int** arr = (int**) malloc((j+1)*sizeof(int*));
 
     int a, b;
-    for (a = 0; a < 10; ++a) 
-    {
-        arr[a] = (int*) malloc(10*sizeof(int));
-        for (b = 0; b < 10; ++b)
-            arr[a][b] = 0;
-    }
+    for (a = 0; a < 10; ++a) arr[a] = (int*) malloc((j+1)*sizeof(int));
 
     for (b = i; b <= j; ++b)
     {
