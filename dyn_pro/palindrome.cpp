@@ -33,22 +33,22 @@ int palindrome_recursive(std::string str, int i, int j)
 
 int palindrome_dynamic(std::string str, int i, int j)
 {
-    int** arr = (int**) malloc((j+1)*sizeof(int*));
+    int** L = (int**) malloc((j+1)*sizeof(int*));
 
     int a, b;
-    for (a = 0; a < 10; ++a) arr[a] = (int*) malloc((j+1)*sizeof(int));
+    for (a = 0; a < 10; ++a) L[a] = (int*) malloc((j+1)*sizeof(int));
 
     for (b = i; b <= j; ++b)
     {
         for (a = j; a >= i; --a)
         {
-            if (a > b) arr[a][b] = 0;
-            else if (a == b) arr[a][b] = 1;
-            else if (str[a] == str[b]) arr[a][b] = arr[a+1][b-1]+2;
-            else arr[a][b] = arr[a+1][b] > arr[a][b-1]? arr[a+1][b]: arr[a][b-1];
+            if (a > b) L[a][b] = 0;
+            else if (a == b) L[a][b] = 1;
+            else if (str[a] == str[b]) L[a][b] = L[a+1][b-1]+2;
+            else L[a][b] = L[a+1][b] > L[a][b-1]? L[a+1][b]: L[a][b-1];
         }
     }
-    return arr[i][j];
+    return L[i][j];
 }
 
 int main() 
