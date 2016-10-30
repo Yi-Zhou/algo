@@ -1,0 +1,4 @@
+g++ -g BloomFilter.cpp ../tools.cpp
+#if [ $? -eq 0 ]; then
+#	gdb a.out
+#fi
